@@ -1,18 +1,11 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import SectionTitle from './SectionTitle.vue'; // Asumsi Anda punya komponen
-const educationHistory = ref([]);
-const API_URL = import.meta.env.PROD ? '/api/education' :
-'http://localhost:3000/api/education';
-onMounted(async () => {
-try {
-const response = await axios.get(API_URL);
-educationHistory.value = response.data;
-} catch (error) {
-console.error('Gagal mengambil data pendidikan:', error);
-}
-});
+import SectionTitle from './SectionTitle.vue';
+// Data ini akan kita pindah ke backend nanti
+const educationHistory = [ { id: 1, period: '2023 - Sekarang', institution: 'Universitas Amikom Yogyakarta', major: 'S1 - Informatika' },
+{ id: 2, period: '2020 - 2023', institution: 'SMA Negeri 1 Karangmojo', major: 'MIPA'},
+{ id: 3, period: '2017 - 2020', institution: 'SMP Negeri 1 Rongkop'} 
+];
+
 </script>
 <template>
 <section id="pendidikan" class="py-20 bg-gradient-to-r from-[#a8dadc] via-[#f1faee] to-[#f4a261]">
